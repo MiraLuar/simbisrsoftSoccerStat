@@ -1,0 +1,34 @@
+.table-teams{
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    justify-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.filter{
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    background: var(--light-color);
+    width: 60vw;
+    justify-content: center;
+
+}
+
+.filter > input{
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.filter > *{
+    margin: 12px 4px;
+}
+
+.containerTeams {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

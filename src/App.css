@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300&display=swap');
+
+#root{
+  position: relative;
+  padding-top: 130px;
+  --main-color: #c5e5fc;
+  --black:#262626;
+  --light-color: #c6d1db;
+  --bg:#fceae9;
+  --border:.1rem solid rgba(1, 0, 0, 0.8);
+  --box-shadow:0 .5rem 1.5rem rgba(2, 0, 0, 0.1);
+  --blue-color: #5665e1;
+    height: 100%;
+}
+@media (max-device-width: 320px) {
+  #root {
+    background: #3acb19
+  }
+}
+@media (max-device-width: 720px) {
+  #root{
+    background: #1987cb
+  }
+}
+
+
+*{
+  font-family: 'Nunito', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-decoration: none;
+  transition: all .3s ease-out;
+}
+
+header {
+  position: fixed;
+  height: 120px;
+  top:0; left:0; right: 0;
+  background: #dbe7fb;
+  opacity: 0.8;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+}
+
+#left-title{
+  color: #756265;
+}
+
+#right-title{
+  color: #575862;
+  margin-left: 10px;
+}
+
+.logo {
+  cursor: pointer;
+  margin: 16px 16px 16px 30px;
+  width: auto;
+  height: 80px;
+}
+.background-image{
+  min-height:100vh;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background: url("../src/images/background.jpg") no-repeat fixed;
+}
+
+.main-title{
+  font-size: 24px;
+  display: flex;
+}

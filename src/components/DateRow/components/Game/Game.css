@@ -1,0 +1,51 @@
+.game-container{
+    display: flex;
+    flex-direction: column;
+    padding: 8px 16px;
+    position: relative;
+    border-bottom: var(--border);
+    align-items: center;
+    width: 100%;
+    background: var(--light-color);
+}
+
+.game-container:last-of-type{
+    border-bottom: 0;
+}
+
+.team-name{
+    font-weight: bold;
+    }
+
+.team-name > * {
+    margin-right: 4px;
+}
+.team-result{
+    font-size: 18px;
+    }
+.game-status{
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+[statusmatches="FINISHED"] {
+    background-color: #99f186;
+}
+
+[statusmatches="SCHEDULED"] {
+    background-color: #86f1d4;
+}
+
+[statusmatches="POSTPONED"] {
+    background-color: #f18686;
+}
+
+[statusmatches="INLIVE"] {
+    background-color: #f1c386;
+}
+
