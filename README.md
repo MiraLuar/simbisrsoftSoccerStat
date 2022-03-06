@@ -5,7 +5,7 @@
 - Система предназначена для просмотра матчей в рамках лиги (соревнований) и матчей команд.
 
 ## Ссылка
-- [DavydovaSoccerStat](https://galichanton.github.io/SoccerStat/)
+- [DavydovaSoccerStat](https://miraluar.github.io/simbisrsoftSoccerStat/)
 ---
 ### Общие положения
 - Просмотр списка лиг/соревнований;
