@@ -1,33 +1,60 @@
+.container-league{
+    display: grid;
+}
+
 .table-league{
     display: grid;
-    grid-template-columns: repeat(3, 300px);
+    grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     gap: 20px;
     justify-content: center;
     }
-.filter{
+
+.filter-league{
     display: flex;
-    align-items: center;
-    margin: 8px;
+    width: 300px;
+    gap: 10px;
     font-size: 14px;
     font-weight: bold;
-    background: var(--light-color);
-    width: 60vw;
-    justify-content: center;
-
+    background: none;
+    border: var(--border);
+    border-radius: 8px;
+    margin: 8px 8px 8px 20px;
+    padding: 6px 6px;
+    align-items: center;
 }
 
-.filter > input{
-    padding: 4px 8px;
+.filter-league > input{
+    padding: 4px 10px;
     border-radius: 4px;
 }
 
-.filter > *{
-    margin: 12px 4px;
+.icon-search{
+    padding: 2px;
 }
 
-.container-league {
+.pagination {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 2px;
+}
+
+.page-item{
+    display: flex;
+    margin: 4px;
+    padding: 2px;
+    border: var(--border);
+    border-radius: 4px;
+    background-color: var(--bg);
+    color: var(--font-main);
+}
+
+.page-link{
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--font-chield);
+    margin: 2px;
+
 }

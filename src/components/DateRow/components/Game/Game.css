@@ -1,6 +1,8 @@
-.game-container{
+.game-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 30px;
     padding: 8px 16px;
     position: relative;
     border-bottom: var(--border);
@@ -9,22 +11,30 @@
     background: var(--light-color);
 }
 
-.game-container:last-of-type{
+.game-container:last-of-type {
     border-bottom: 0;
 }
+.date{
+    font-size: medium;
+}
 
-.team-name{
+.team-name {
     font-weight: bold;
-    }
+    width: 350px;
+}
 
 .team-name > * {
     margin-right: 4px;
 }
-.team-result{
+
+.team-result {
     font-size: 18px;
-    }
-.game-status{
+    width: 60px;
+}
+
+.game-status {
     position: absolute;
+    width: 100px;
     top: 8px;
     right: 16px;
     padding: 4px 8px;
@@ -33,19 +43,37 @@
     font-weight: bold;
 }
 
-[statusmatches="FINISHED"] {
-    background-color: #99f186;
-}
-
 [statusmatches="SCHEDULED"] {
     background-color: #86f1d4;
+}
+
+[statusmatches="LIVE"] {
+    background-color: #ffe322;
+}
+
+[statusmatches="IN_PLAY"] {
+    background-color: #d386f1;
+}
+
+[statusmatches="PAUSED"] {
+    background-color: #ff225d;
+}
+
+[statusmatches="FINISHED"] {
+    background-color: #99f186;
 }
 
 [statusmatches="POSTPONED"] {
     background-color: #f18686;
 }
 
-[statusmatches="INLIVE"] {
-    background-color: #f1c386;
+[statusmatches="SUSPENDED"] {
+    background-color: #c71111;
 }
+
+[statusmatches="CANCELED"] {
+    background-color: #8a0606;
+}
+
+
 

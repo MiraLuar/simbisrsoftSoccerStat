@@ -1,23 +1,25 @@
 import React, {useEffect, useState} from 'react'
-import {useParams, useNavigate, useLocation} from 'react-router-dom';
-import "./CalendarCommand.css"
-import useQuery from "../../utils/useQuery";
+import {useNavigate, useParams} from 'react-router-dom';
+import './CalendarLeague.css'
 import paths from "../../constants/paths";
-import getTeamMatches from "../../services/getTeamMatches";
+import useQuery from "../../utils/useQuery";
+import getLeagueMatches from "../../services/getLeagueMatches";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import Game from "../../components/DateRow/components/Game/Game";
 import ReactPaginate from "react-paginate";
 
+
 const defaultNavigation = [
     {
-        title: 'Команды',
-        route: paths.teams
+        title: 'Лиги',
+        route: paths.league
     }
 ]
 
 const PER_PAGE = 10;
 
-const CalendarCommand = () => {
+
+const CalendarLeague = () => {
     const [isLoading, setLoading] = useState(true)
     const [navigation, changeNavigation] = useState(defaultNavigation)
     const [matches, setMatches] = useState([])
@@ -32,7 +34,6 @@ const CalendarCommand = () => {
     let match = useParams();
     const navigate = useNavigate();
     let query = useQuery();
-    const location = useLocation();
 
     const changeCurrentItems = () => {
         const endOffset = itemOffset + PER_PAGE;
@@ -41,16 +42,12 @@ const CalendarCommand = () => {
     }
 
     useEffect(() => {
-        if (!location.state) return;
-        changeNavigation(defaultNavigation.concat({title: location.state.teamName}))
-    }, [location]);
-
-    useEffect(() => {
         const sendRequest = async () => {
-            getTeamMatches(match.id)
+            getLeagueMatches(match.id)
                 .then(res => {
-
+                    changeNavigation(defaultNavigation.concat({title: res.data.competition.name}))
                     setFullMatches(res.data.matches)
+
                 })
                 .finally(() => {
                     setLoading(false)
@@ -83,6 +80,7 @@ const CalendarCommand = () => {
 
     useEffect(changeCurrentItems, [itemOffset, matches])
 
+
     const onChangeDate = ({target}) => {
         changeFilterDate({...filterDate, [target.name]: !!target.value ? target.value : null})
         const params = []
@@ -98,7 +96,7 @@ const CalendarCommand = () => {
                 params.push(`fromDate=${target.value}`)
         }
         const query = params.length ? `?${params.join('&')}` : ''
-        navigate(paths.calendarTeam(match.id) + query)
+        navigate(paths.calendarLeague(match.id) + query)
     }
 
     const handlePageClick = (event) => {
@@ -108,10 +106,10 @@ const CalendarCommand = () => {
 
     const isEmpty = !matches.length
 
-    return (<div className="calendar-command-container">
+    return (<div className="calendar-league-container">
         <Breadcrumbs navigations={navigation}/>
-        <span className="title-n"> Матчи</span>
-        <div className="filter-teams">
+        <span className="title-name"> Матчи</span>
+        <div className="filter-league">
             <span> С </span>
             <input
                 type="date"
@@ -130,8 +128,8 @@ const CalendarCommand = () => {
         {isLoading && <h3>Загрузка...</h3>}
         {!isLoading && !isEmpty && currentItems.map((game, index) => <Game key={index} {...game} />)}
         {!isLoading && isEmpty && <div className="back">
-            <h4>У данной команды нет матчей.</h4>
-            <h4 className="back-l" onClick={() => navigate(-1)}> Вернуться к списку команд</h4>
+            <h4> Матчи не найдены </h4>
+            <h4 className="back-l" onClick={() => navigate(-1)}> Вернуться к списку лиг </h4>
         </div>}
         <div className="col-12 flex-column d-none d-sm-flex">
             <ReactPaginate containerClassName="pagination justify-content-center"
@@ -154,4 +152,5 @@ const CalendarCommand = () => {
     </div>)
 }
 
-export default CalendarCommand
+export default CalendarLeague
+

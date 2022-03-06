@@ -1,28 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300&display=swap');
 
 #root{
-  position: relative;
-  padding-top: 130px;
   --main-color: #c5e5fc;
-  --black:#262626;
-  --light-color: #c6d1db;
+  --font-main:#262626;
+  --font-chield: #095d3f;
+  --font-title: #65011d;
+  --light-color: #a6cdf5;
   --bg:#fceae9;
-  --border:.1rem solid rgba(1, 0, 0, 0.8);
+  --border:.14rem solid rgb(120, 165, 181);
   --box-shadow:0 .5rem 1.5rem rgba(2, 0, 0, 0.1);
   --blue-color: #5665e1;
+  --gradient: linear-gradient(#7fcedb 40.77%, rgb(224, 222, 218) 60.15%);
     height: 100%;
 }
-@media (max-device-width: 320px) {
-  #root {
-    background: #3acb19
-  }
-}
-@media (max-device-width: 720px) {
-  #root{
-    background: #1987cb
-  }
+
+header {
+  height: 100px;
+  top:0; left:0; right: 0;
+  background: var(--light-color);
+  opacity: 0.8;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  z-index: 10;
 }
 
+.logo {
+  cursor: pointer;
+  margin: 16px 16px 16px 30px;
+  width: auto;
+  height: 90px;
+}
+
+.main-title{
+  font-size: 22px;
+  display: flex;
+}
+
+.left-title{
+  cursor: pointer;
+  color: var(--font-main);
+  margin-left: 10px;
+}
+
+.right-title{
+  cursor: pointer;
+  color: var(--font-title);
+  margin-left: 40px;
+}
 
 *{
   font-family: 'Nunito', sans-serif;
@@ -33,37 +60,7 @@
   transition: all .3s ease-out;
 }
 
-header {
-  position: fixed;
-  height: 120px;
-  top:0; left:0; right: 0;
-  background: #dbe7fb;
-  opacity: 0.8;
-  box-shadow: var(--box-shadow);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-
-}
-
-#left-title{
-  color: #756265;
-}
-
-#right-title{
-  color: #575862;
-  margin-left: 10px;
-}
-
-.logo {
-  cursor: pointer;
-  margin: 16px 16px 16px 30px;
-  width: auto;
-  height: 80px;
-}
-.background-image{
+.background{
   min-height:100vh;
   height: 100%;
   width: 100%;
@@ -73,10 +70,45 @@ header {
   top: 0;
   left: 0;
   background-size: cover;
-  background: url("../src/images/background.jpg") no-repeat fixed;
+  background: var(--main-color);
 }
 
-.main-title{
-  font-size: 24px;
-  display: flex;
+.body {
+  max-width: 1920px;
+  padding: 0 15px;
+  margin: 30px auto 0;
+  text-align: center;
 }
+
+@media (min-width: 320px) {
+  .loader-styles {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .loader-styles {
+    position: absolute;
+    left: 43%;
+    top: 50%;
+  }
+}
+
+@media (min-width: 1136px) {
+  .loader-styles {
+    position: absolute;
+    left: 45%;
+    top: 50%;
+  }
+}
+
+@media (min-width: 1366px) {
+  .loader-styles {
+    position: absolute;
+    left: 48%;
+    top: 50%;
+  }
+}
+

@@ -1,13 +1,14 @@
-.calendar-command-container{
+.calendar-league-container {
     display: inline;
     flex-direction: column;
     align-items: center;
+
 }
 
-.filter-teams{
+.filter-league{
     display: flex;
     align-items: center;
-    margin: 6px;
+    margin: 8px;
     font-size: 14px;
     font-weight: bold;
     background: none;
@@ -16,24 +17,24 @@
     justify-content: flex-start;
     border: var(--border);
     border-radius: 8px;
+
 }
 
-.filter-teams > input{
+.filter-league > input{
     padding: 4px 8px;
     border-radius: 4px;
 }
 
-.filter-teams > *{
+.filter-league > *{
     margin: 12px 4px;
 }
 
-.title-n{
+.title-name{
     margin: 12px;
     font-size: 28px;
     font-weight: bold;
     color: var(--font-chield)
 }
-
 .back{
     display: flex;
     margin: 8px;

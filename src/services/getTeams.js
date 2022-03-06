@@ -1,3 +1,3 @@
 import axios from "axios";
 
-export default (id) => axios.get(`http://api.football-data.org/v2/competitions/${id}/teams`, {headers: {'X-Auth-Token': process.env.REACT_APP_AUTH_TOKEN},})
+export default (id) => axios.get(`${process.env.REACT_APP_BASE_URL}/v2/teams/`, {headers: {'X-Auth-Token': process.env.REACT_APP_AUTH_TOKEN},})

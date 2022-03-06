@@ -1,6 +1,6 @@
 export default {
     calendarLeague: '/calendar-league/:id',
-    team: '/team/:id',
+    teams: '/v2/teams/',
     calendarTeam: '/calendar-team/:id',
     league: '/'
-};
+    };

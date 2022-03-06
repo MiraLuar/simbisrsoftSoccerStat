@@ -1,13 +1,19 @@
 import React from 'react'
 import './Team.css'
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import paths from "../../../constants/paths";
 
-const Team = ({name, logo, id}) => {
+const Team = ({name, logo, id, shortName}) => {
     let navigate = useNavigate();
-    return (<div className="team-card" onClick={() => {navigate(paths.calendarTeam(id))}}>
+
+    const route = () => {
+        navigate(paths.calendarTeam(id), { state: { teamName: name } })
+    }
+
+    return (<div className="team-card" onClick={route}>
         <img className="logo-team" src={logo}/>
-        <span className="title"> {name} </span>
+        <span className="title-1"> {name} </span>
+        <span className="title-2"> {shortName} </span>
     </div>)
 }
 
